@@ -1,0 +1,266 @@
+<?xml version="1.0"?>
+<TcSmProject xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://www.beckhoff.com/schemas/2012/07/TcSmProject" TcSmVersion="1.0" TcVersion="3.1.4024.22">
+	<DataTypes>
+		<DataType>
+			<Name GUID="{41ED9519-F005-F75E-C949-7BAD9F19538C}" IecBaseType="true" AutoDeleteType="true">ARRAY [0..63] OF BYTE</Name>
+			<BitSize>512</BitSize>
+			<BaseType GUID="{18071995-0000-0000-0000-000000000001}">BYTE</BaseType>
+			<ArrayInfo>
+				<LBound>0</LBound>
+				<Elements>64</Elements>
+			</ArrayInfo>
+		</DataType>
+		<DataType>
+			<Name GUID="{18071995-0000-0000-0000-000300000040}" IecBaseType="true" AutoDeleteType="true">ARRAY [0..63] OF BYTE</Name>
+			<BitSize>512</BitSize>
+			<BaseType GUID="{18071995-0000-0000-0000-000000000001}">BYTE</BaseType>
+			<ArrayInfo>
+				<LBound>0</LBound>
+				<Elements>64</Elements>
+			</ArrayInfo>
+		</DataType>
+	</DataTypes>
+	<Project ProjectGUID="{E93C8AD8-E82A-42DD-88CA-A4857CDE7239}" TargetNetId="172.18.212.237.1.1" Target64Bit="true" ShowHideConfigurations="#x6">
+		<System>
+			<Tasks>
+				<Task Id="3" Priority="20" CycleTime="160000" AmsPort="350" AdtTasks="true">
+					<Name>PlcTask</Name>
+				</Task>
+			</Tasks>
+		</System>
+		<Plc>
+			<Project GUID="{ABB77639-10E2-4C19-A153-8596BCDDEFD6}" Name="IDLoopGW_PLC" PrjFilePath="IDLoopGW_PLC\IDLoopGW_PLC.plcproj" TmcFilePath="IDLoopGW_PLC\IDLoopGW_PLC.tmc" ReloadTmc="true" AmsPort="851" FileArchiveSettings="#x000e" SymbolicMapping="true">
+				<Instance Id="#x08502000" TcSmClass="TComPlcObjDef" KeepUnrestoredLinks="2" TmcPath="IDLoopGW_PLC\IDLoopGW_PLC.tmc">
+					<Name>IDLoopGW_PLC Instance</Name>
+					<CLSID ClassFactory="TcPlc30">{08500001-0000-0000-F000-000000000064}</CLSID>
+					<Vars VarGrpType="1">
+						<Name>PlcTask Inputs</Name>
+						<Var>
+							<Name>GVL.G_Dummy</Name>
+							<Type>BOOL</Type>
+						</Var>
+						<Var>
+							<Name>GVL.G_Dev_state</Name>
+							<Type>UINT</Type>
+						</Var>
+						<Var>
+							<Name>GVL.G_FromYaskawa</Name>
+							<Type GUID="{41ED9519-F005-F75E-C949-7BAD9F19538C}">ARRAY [0..63] OF BYTE</Type>
+						</Var>
+					</Vars>
+					<Vars VarGrpType="2" AreaNo="1">
+						<Name>PlcTask Outputs</Name>
+						<Var>
+							<Name>GVL.G_ToYaskawa</Name>
+							<Type GUID="{41ED9519-F005-F75E-C949-7BAD9F19538C}">ARRAY [0..63] OF BYTE</Type>
+						</Var>
+					</Vars>
+					<Contexts>
+						<Context>
+							<Id NeedCalleeCall="true">0</Id>
+							<Name>PlcTask</Name>
+							<ManualConfig>
+								<OTCID>#x02010030</OTCID>
+							</ManualConfig>
+							<Priority>20</Priority>
+							<CycleTime>16000000</CycleTime>
+						</Context>
+					</Contexts>
+					<TaskPouOids>
+						<TaskPouOid Prio="20" OTCID="#x08502001"/>
+					</TaskPouOids>
+				</Instance>
+			</Project>
+		</Plc>
+		<Io>
+			<Device Id="1" DevType="113" AmsPort="28673" AmsNetId="172.18.212.237.2.1" RemoteName="Gerät 1 (Profinet Controller)">
+				<Name>Gerät 1 (Profinet Controller)</Name>
+				<DevData>000000000000000000000000007102005c4445564943455c7b37423539443042462d413237392d343542392d384636432d3632363239334332394645397d0000000000000000010096ffa8c000ffffff00010554d7b9040000000000000000000000000000000000000000000000000000000000000000000000000000000000</DevData>
+				<Image Id="1" AddrType="1" ImageType="3" SizeIn="68" SizeOut="74">
+					<Name>Prozessabbild</Name>
+				</Image>
+				<Box Id="1" BoxType="9121">
+					<Name>standard.yrc1000</Name>
+					<Comment><![CDATA[GSDML Name: GSDML-V2.33-#YASKAWA-PreConf_YRC1000_CP1616_standard_IO64-20231019-074733.xml
+Path: C:\Users\samee\Desktop\
+VendorName: YASKAWA
+OrderNumber: YRC PROFI CP1616
+HW Release Version: not available
+SW Release Version: not available]]></Comment>
+					<ImageId>121</ImageId>
+					<Vars VarGrpType="1">
+						<Name>Inputs</Name>
+						<Var>
+							<Name>PnIoBoxState</Name>
+							<Comment><![CDATA[0 = No error
+1 = Profinet device state machine is in boot mode
+2 = Device not found
+3 = The stationname is not unique
+4 = IP could not be set
+5 = IP conflict
+6 = DCP set was not successful
+7 = Watchdog error
+8 = Datahold error
+9 = RTC3: Sync mode could not be initiated
+10 = Profinet controller has a link error
+11 = The aliasname is not unique
+12 = The automatic name assignement isn't possible - wrong device type
+13 = IOC-AR is established but no application ready
+14 = IOC-AR is established but module difference
+15 = At least one InputCR is invalid, provider in stop or problemindicator is set
+16 = At least one OutputCR is invalid, provider in stop or problemindicator is set
+31 = Only for EtherCAT gateways: WC-State of cyclic EtherCAT frame is 1
+]]></Comment>
+							<Type>UINT</Type>
+						</Var>
+						<Var>
+							<Name>PnIoBoxDiag</Name>
+							<Comment><![CDATA[0x0000 = No diagnosis
+0x0001 = IOC-AR is not established
+0x0002 = IOC-AR is established
+0x0004 = IOC-AR is established but no application ready
+0x0008 = IOC-AR is established but module difference
+0x0010 = At least one AlarmCR got a diagnosis alarm
+0x0100 = At least one InputCR is invalid
+0x0200 = At least one InputCR Provider is in stop
+0x0400 = At least one InputCR Problemindicator is set
+0x1000 = At least one OutputCR is invalid
+0x2000 = At least one OutputCR Provider is in stop
+0x4000 = At least one OutputCR Problemindicator is set
+]]></Comment>
+							<Type>UINT</Type>
+							<BitOffs>16</BitOffs>
+						</Var>
+					</Vars>
+					<Vars VarGrpType="2">
+						<Name>Outputs</Name>
+						<Var>
+							<Name>PnIoBoxCtrl</Name>
+							<Type>UINT</Type>
+						</Var>
+					</Vars>
+					<Profinet DeviceId="1283" VendorId="531" FrameOffset="32768" Flags="16" IPAdd="c0a86409" ProtocolType="3" BoxOnDeviceTyp="113" MinPhysSlotNr="1" MaxPhysSlotNr="1" InstanceServerPort="61000" InstanceClientPort="60000" InstanceId="100" InstanceNumberOfARs="1" InstanceNumberOfAPIs="1" MinDeviceInterval="32" MultipleWriteSupported="true" Phase="1" WatchdogFaktor="3" ReductionRatio="16" SendClockFaktor="32" MaxInputLen="72" MaxOutputLen="72" MaxDataLen="144" MaxSupportedRecordSize="8192" SendClockFactorData="080010002000" RedRatio="0100020004000800100020004000800000010002" SavePnIoBoxValues="0100" BoxTypeInfo="Kommunikationsprozessor CP 1616 zum Anschluss an Industrial Ethernet, PROFINET IO-Controller, RT/IRT, 4-Port-Switch, IO-Router, MRP, Priorisierter Hochlauf, Webdiagnose, Firmware V2.8" GSDMLPath="C:\Users\samee\Desktop\GSDML-V2.33-#YASKAWA-PreConf_YRC1000_CP1616_standard_IO64-20231019-074733.xml" ImagePath="C:\Users\samee\Desktop\YRC1000_CP1616_standard.bmp" MainFamily="PLCs" ProductFamily="SIMATIC PC-CP" OrderNr="YRC PROFI CP1616" DefaultDNSName="standard.yrc1000" VendorName="YASKAWA" GraphicFile="YRC1000_CP1616_standard" SWVersion="not available" HWVersion="not available" AltLanguage="7">
+						<UsedGsdmlModule ModuleIdentNumber="74" ModuleName="DAP Module" InfoText="Kommunikationsprozessor CP 1616 zum Anschluss an Industrial Ethernet, PROFINET IO-Controller, RT/IRT, 4-Port-Switch, IO-Router, MRP, Priorisierter Hochlauf, Webdiagnose, Firmware V2.8" OrderNumber="YRC PROFI CP1616">
+							<Slot>1</Slot>
+						</UsedGsdmlModule>
+						<UsedGsdmlSubModule SubModuleIdentNumber="36040" SubSlotNumber="1000" TypeOfSubmodule="3" Id="VSM_2_1000" SubModuleName="RC">
+							<DataItemIn/>
+							<DataItemOut/>
+						</UsedGsdmlSubModule>
+						<API Id="1">
+							<Name>API</Name>
+							<ImageId>4</ImageId>
+							<Module Id="#x031d0001" DAP="true" ModuleIdentNumber="74" SlotNumber="1" ModuleInfo="Kommunikationsprozessor CP 1616 zum Anschluss an Industrial Ethernet, PROFINET IO-Controller, RT/IRT, 4-Port-Switch, IO-Router, MRP, Priorisierter Hochlauf, Webdiagnose, Firmware V2.8">
+								<Name>Term 1 (DAP Module)</Name>
+								<Comment><![CDATA[GSDML: GSDML-V2.33-#YASKAWA-PreConf_YRC1000_CP1616_standard_IO64-20231019-074733.xml
+Module Info: Kommunikationsprozessor CP 1616 zum Anschluss an Industrial Ethernet, PROFINET IO-Controller, RT/IRT, 4-Port-Switch, IO-Router, MRP, Priorisierter Hochlauf, Webdiagnose, Firmware V2.8
+OrderNumber: YRC PROFI CP1616]]></Comment>
+								<ImageId>182</ImageId>
+								<SubModule Id="#x031c0001" SubModuleIdentNumber="36040" TypeOfSubModule="3" SubSlotNumber="1000" IsFixSubmodule="true" SubModuleID="VSM_2_1000" AddSubModFlags="92">
+									<Name>Subterm 1 (RC)</Name>
+									<Comment><![CDATA[GSDML: GSDML-V2.33-#YASKAWA-PreConf_YRC1000_CP1616_standard_IO64-20231019-074733.xml
+]]></Comment>
+									<ImageId>183</ImageId>
+									<Vars VarGrpType="1">
+										<Name>Inputs</Name>
+										<Var>
+											<Name>VSM_2_1000</Name>
+											<Type GUID="{18071995-0000-0000-0000-000300000040}">ARRAY [0..63] OF BYTE</Type>
+											<BitOffs>32</BitOffs>
+										</Var>
+									</Vars>
+									<Vars VarGrpType="2">
+										<Name>Outputs</Name>
+										<Var>
+											<Name>VSM_2_1000</Name>
+											<Type GUID="{18071995-0000-0000-0000-000300000040}">ARRAY [0..63] OF BYTE</Type>
+											<BitOffs>16</BitOffs>
+										</Var>
+									</Vars>
+								</SubModule>
+								<SubModule Id="#x031c0002" SubModuleIdentNumber="32770" TypeOfSubModule="1" SubSlotNumber="32768" IsFixSubmodule="true" SubModuleID="Interface" AddSubModFlags="64" InterfaceData="0100000000000000000000000000000000000000000098000000000000000000">
+									<Name>Subterm 2 (Interface)</Name>
+									<Comment><![CDATA[GSDML: GSDML-V2.33-#YASKAWA-PreConf_YRC1000_CP1616_standard_IO64-20231019-074733.xml
+]]></Comment>
+									<ImageId>183</ImageId>
+									<Vars VarGrpType="1">
+										<Name>Inputs</Name>
+									</Vars>
+									<Vars VarGrpType="2">
+										<Name>Outputs</Name>
+									</Vars>
+								</SubModule>
+								<SubModule Id="#x031c0003" SubModuleIdentNumber="49152" TypeOfSubModule="2" SubSlotNumber="32769" IsFixSubmodule="true" SubModuleID="Port_1" AddSubModFlags="64" PortData="0a022405000000000000000000000000000000000000000000000000">
+									<Name>Subterm 3 (Port 1)</Name>
+									<Comment><![CDATA[GSDML: GSDML-V2.33-#YASKAWA-PreConf_YRC1000_CP1616_standard_IO64-20231019-074733.xml
+]]></Comment>
+									<ImageId>183</ImageId>
+									<Vars VarGrpType="1">
+										<Name>Inputs</Name>
+									</Vars>
+									<Vars VarGrpType="2">
+										<Name>Outputs</Name>
+									</Vars>
+								</SubModule>
+								<SubModule Id="#x031c0004" SubModuleIdentNumber="49152" TypeOfSubModule="2" SubSlotNumber="32770" IsFixSubmodule="true" SubModuleID="Port_2" AddSubModFlags="64" PortData="0a022405000000000000000000000000000000000000000000000000">
+									<Name>Subterm 4 (Port 2)</Name>
+									<Comment><![CDATA[GSDML: GSDML-V2.33-#YASKAWA-PreConf_YRC1000_CP1616_standard_IO64-20231019-074733.xml
+]]></Comment>
+									<ImageId>183</ImageId>
+									<Vars VarGrpType="1">
+										<Name>Inputs</Name>
+									</Vars>
+									<Vars VarGrpType="2">
+										<Name>Outputs</Name>
+									</Vars>
+								</SubModule>
+								<SubModule Id="#x031c0005" SubModuleIdentNumber="16384" TypeOfSubModule="2" SubSlotNumber="32771" IsFixSubmodule="true" SubModuleID="Port_3" AddSubModFlags="64" PortData="0a022405000000000000000000000000000000000000000000000000">
+									<Name>Subterm 5 (Port 3)</Name>
+									<Comment><![CDATA[GSDML: GSDML-V2.33-#YASKAWA-PreConf_YRC1000_CP1616_standard_IO64-20231019-074733.xml
+]]></Comment>
+									<ImageId>183</ImageId>
+									<Vars VarGrpType="1">
+										<Name>Inputs</Name>
+									</Vars>
+									<Vars VarGrpType="2">
+										<Name>Outputs</Name>
+									</Vars>
+								</SubModule>
+								<SubModule Id="#x031c0006" SubModuleIdentNumber="16384" TypeOfSubModule="2" SubSlotNumber="32772" IsFixSubmodule="true" SubModuleID="Port_4" AddSubModFlags="64" PortData="0a022405000000000000000000000000000000000000000000000000">
+									<Name>Subterm 6 (Port 4)</Name>
+									<Comment><![CDATA[GSDML: GSDML-V2.33-#YASKAWA-PreConf_YRC1000_CP1616_standard_IO64-20231019-074733.xml
+]]></Comment>
+									<ImageId>183</ImageId>
+									<Vars VarGrpType="1">
+										<Name>Inputs</Name>
+									</Vars>
+									<Vars VarGrpType="2">
+										<Name>Outputs</Name>
+									</Vars>
+								</SubModule>
+							</Module>
+						</API>
+					</Profinet>
+				</Box>
+				<Profinet PLCPortNr="851" AddPortCount="1">
+					<Ethernet DeviceDesc="Ethernet 2 (TwinCAT-Intel PCI Ethernet Adapter (Gigabit) #3)"/>
+					<PNController ClientPort="60000" ServerPort="61000" VendorId="288" DeviceId="35" IPData="00000000c0a86401ffffff00c0a86401" SystemName="tc-pncontroller" IRTSendClock="32">
+						<RTData CableLength="10"/>
+					</PNController>
+				</Profinet>
+			</Device>
+		</Io>
+	</Project>
+	<Mappings>
+		<MappingInfo Identifier="{00000000-2001-0850-0020-500810000403}" Id="#x02030010"/>
+		<OwnerA Name="TIPC^IDLoopGW_PLC^IDLoopGW_PLC Instance">
+			<OwnerB Name="TIID^Device 1 (Profinet Controller)">
+				<Link VarA="PlcTask Inputs^GVL.G_Dev_state" VarB="Inputs^DevState"/>
+			</OwnerB>
+			<OwnerB Name="TIID^Device 1 (Profinet Controller)^standard.yrc1000">
+				<Link VarA="PlcTask Inputs^GVL.G_FromYaskawa" VarB="API^Term 1 (DAP Module)^Subterm 1 (RC)^Inputs^VSM_2_1000"/>
+				<Link VarA="PlcTask Outputs^GVL.G_ToYaskawa" VarB="API^Term 1 (DAP Module)^Subterm 1 (RC)^Outputs^VSM_2_1000"/>
+			</OwnerB>
+		</OwnerA>
+	</Mappings>
+</TcSmProject>

@@ -1,0 +1,51 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4024.9">
+  <GVL Name="Robot_INT_outputs" Id="{51924033-078b-4a79-8048-e4e7e568e3c5}">
+    <Declaration><![CDATA[{attribute 'qualified_only'}
+VAR_GLOBAL
+	
+	(*_____________Robot Output BOOL parameters__________________*)
+	
+	b_IstInGrundstellung 	: BOOL;
+	b_Grundstellungen		: BOOL;
+	b_ParamGelesen			: BOOL;
+	b_Running				: BOOL;
+	b_Done					: BOOL;	
+	
+	(*______________________Error Bits _________________________*)
+	Error1					: BOOL;
+	Error2					: BOOL;
+	Error3					: BOOL;
+	Error4					: BOOL;
+	Error5					: BOOL;
+	Error6					: BOOL;
+	Error7					: BOOL;
+	Error8					: BOOL;
+	Error9					: BOOL;
+	Error10					: BOOL;
+	Error11					: BOOL;
+	Error12					: BOOL;
+	Error13					: BOOL;
+	Error14					: BOOL;
+	Error15					: BOOL;
+	Error16					: BOOL;
+	
+	(*_____________Robot Output INT parameters__________________*)
+	
+	Job_Number :INT;
+	Druckskraft :INT;
+	Roll_Geschwindigkeit :INT;
+	Contact_Angle :INT;
+	Frequeny :INT;
+	Start_Roll_Angle :INT; 
+	End_Roll_Angle :INT;
+	FWD_Speed :INT;
+	Shift_Speed_X_FWD_Speed :INT;
+	Shift_Speed_Y_FWD_Speed :INT;
+	Rot_Speed_X :INT;
+	Rot_Speed_Y :INT;
+	Rot_Speed_Z :INT;
+	
+END_VAR]]></Declaration>
+  </GVL>
+</TcPlcObject>

@@ -1,0 +1,26 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4024.9">
+  <POU Name="write_lowbyte" Id="{1e5afec2-54dc-4a0d-bede-1666acf1e6bc}" SpecialFunc="None">
+    <Declaration><![CDATA[FUNCTION write_lowbyte : BYTE;
+
+VAR_INPUT
+	gvl_in : INT;  // INT var to be written to robots 2 bytes group
+	//gvl_highbyte : BYTE; // high byte to be written to robots 2 bytes group
+	//gvl_lowbyte : BYTE; // low byte to be written to robots 2 bytes group
+END_VAR
+VAR
+	p_value : HighLow_pointers;
+END_VAR
+]]></Declaration>
+    <Implementation>
+      <ST><![CDATA[p_value.pLow_byte := ADR(gvl_in);
+//p_value.pHigh_byte := p_value.pLow_byte +1; 
+//gvl_lowbyte := p_value.pLow_byte^;
+write_lowbyte := p_value.pLow_byte^;]]></ST>
+    </Implementation>
+    <LineIds Name="write_lowbyte">
+      <LineId Id="12" Count="2" />
+      <LineId Id="7" Count="0" />
+    </LineIds>
+  </POU>
+</TcPlcObject>

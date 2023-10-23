@@ -1,0 +1,12 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4024.9">
+  <DUT Name="HighLow_pointers" Id="{6fe3838e-d0d6-4e5d-a3c6-94a3688164c3}">
+    <Declaration><![CDATA[TYPE HighLow_pointers :
+STRUCT
+	pHigh_byte : POINTER TO BYTE;
+	pLow_byte : POINTER TO BYTE;
+END_STRUCT
+END_TYPE
+]]></Declaration>
+  </DUT>
+</TcPlcObject>

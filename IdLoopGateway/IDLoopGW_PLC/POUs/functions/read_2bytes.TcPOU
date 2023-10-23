@@ -1,0 +1,30 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4024.9">
+  <POU Name="read_2bytes" Id="{881ad0ad-5a88-4ee2-9f76-6e46b6b8049a}" SpecialFunc="None">
+    <Declaration><![CDATA[FUNCTION read_2bytes : INT
+VAR_INPUT
+	gvl_highbyte : BYTE;
+	gvl_lowbyte : BYTE;
+	
+END_VAR
+VAR
+	//value : INT; 
+	p_value : HighLow_pointers; 
+END_VAR
+]]></Declaration>
+    <Implementation>
+      <ST><![CDATA[p_value.pLow_byte := ADR(read_2bytes);
+p_value.pHigh_byte := p_value.pLow_byte +1;
+p_value.pLow_byte^ := gvl_lowbyte;
+p_value.pHigh_byte^ := gvl_highbyte;
+
+]]></ST>
+    </Implementation>
+    <LineIds Name="read_2bytes">
+      <LineId Id="18" Count="2" />
+      <LineId Id="7" Count="0" />
+      <LineId Id="22" Count="0" />
+      <LineId Id="21" Count="0" />
+    </LineIds>
+  </POU>
+</TcPlcObject>

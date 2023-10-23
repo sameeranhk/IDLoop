@@ -1,0 +1,114 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4024.9">
+  <POU Name="Robot_Input_mapping" Id="{8502c60c-f57b-4689-8aaa-0a0fa460b011}" SpecialFunc="None">
+    <Declaration><![CDATA[//map INT values to Robot
+
+PROGRAM Robot_Input_mapping
+VAR
+	Druckskraft 				: HighLow_pointers;
+	Roll_Geschwindigkeit 		: HighLow_pointers;
+	Contact_Angle 				: HighLow_pointers;
+	Frequeny 					: HighLow_pointers;
+	Start_Roll_Angle 			: HighLow_pointers;
+	End_Roll_Angle 				: HighLow_pointers;
+	FWD_Speed 					: HighLow_pointers;
+	Shift_Speed_X_FWD_Speed 	: HighLow_pointers;
+	Shift_Speed_Y_FWD_Speed 	: HighLow_pointers;
+	Rot_Speed_X 				: HighLow_pointers;
+	Rot_Speed_Y 				: HighLow_pointers;
+	Rot_Speed_Z 				: HighLow_pointers;
+	
+
+END_VAR
+]]></Declaration>
+    <Implementation>
+      <ST><![CDATA[
+Druckskraft.pLow_byte := ADR(Robot_INT_outputs.Druckskraft);
+Druckskraft.pHigh_byte := Druckskraft.pLow_byte +1; 
+GVL.G_ToYaskawa[26] := Druckskraft.pLow_byte^;
+GVL.G_ToYaskawa[27] := Druckskraft.pHigh_byte^;
+
+Roll_Geschwindigkeit.pLow_byte := ADR(Robot_INT_outputs.Roll_Geschwindigkeit);
+Roll_Geschwindigkeit.pHigh_byte := Roll_Geschwindigkeit.pLow_byte +1; 
+GVL.G_ToYaskawa[28] := Roll_Geschwindigkeit.pLow_byte^;
+GVL.G_ToYaskawa[29] := Roll_Geschwindigkeit.pHigh_byte^;
+
+Contact_Angle.pLow_byte := ADR(Robot_INT_outputs.Contact_Angle);
+Contact_Angle.pHigh_byte := Contact_Angle.pLow_byte +1; 
+GVL.G_ToYaskawa[30] := Contact_Angle.pLow_byte^;
+GVL.G_ToYaskawa[31] := Contact_Angle.pHigh_byte^;
+
+Frequeny.pLow_byte := ADR(Robot_INT_outputs.Frequeny);
+Frequeny.pHigh_byte := Frequeny.pLow_byte +1; 
+GVL.G_ToYaskawa[32] := Frequeny.pLow_byte^;
+GVL.G_ToYaskawa[33] := Frequeny.pHigh_byte^;
+
+Start_Roll_Angle.pLow_byte := ADR(Robot_INT_outputs.Start_Roll_Angle);
+Start_Roll_Angle.pHigh_byte := Start_Roll_Angle.pLow_byte +1; 
+GVL.G_ToYaskawa[34] := Start_Roll_Angle.pLow_byte^;
+GVL.G_ToYaskawa[35] := Start_Roll_Angle.pHigh_byte^;
+
+End_Roll_Angle.pLow_byte := ADR(Robot_INT_outputs.End_Roll_Angle);
+End_Roll_Angle.pHigh_byte := End_Roll_Angle.pLow_byte +1; 
+GVL.G_ToYaskawa[36] := End_Roll_Angle.pLow_byte^;
+GVL.G_ToYaskawa[37] := End_Roll_Angle.pHigh_byte^;
+
+FWD_Speed.pLow_byte := ADR(Robot_INT_outputs.FWD_Speed);
+FWD_Speed.pHigh_byte := FWD_Speed.pLow_byte +1; 
+GVL.G_ToYaskawa[38] := FWD_Speed.pLow_byte^;
+GVL.G_ToYaskawa[39] := FWD_Speed.pHigh_byte^;
+
+Shift_Speed_X_FWD_Speed.pLow_byte := ADR(Robot_INT_outputs.Shift_Speed_X_FWD_Speed);
+Shift_Speed_X_FWD_Speed.pHigh_byte := Shift_Speed_X_FWD_Speed.pLow_byte +1; 
+GVL.G_ToYaskawa[40] := Shift_Speed_X_FWD_Speed.pLow_byte^;
+GVL.G_ToYaskawa[41] := Shift_Speed_X_FWD_Speed.pHigh_byte^;
+
+Shift_Speed_Y_FWD_Speed.pLow_byte := ADR(Robot_INT_outputs.Shift_Speed_Y_FWD_Speed);
+Shift_Speed_Y_FWD_Speed.pHigh_byte := Shift_Speed_Y_FWD_Speed.pLow_byte +1; 
+GVL.G_ToYaskawa[42] := Shift_Speed_Y_FWD_Speed.pLow_byte^;
+GVL.G_ToYaskawa[43] := Shift_Speed_Y_FWD_Speed.pHigh_byte^;
+
+Rot_Speed_X.pLow_byte := ADR(Robot_INT_outputs.Rot_Speed_X);
+Rot_Speed_X.pHigh_byte := Rot_Speed_X.pLow_byte +1; 
+GVL.G_ToYaskawa[44] := Rot_Speed_X.pLow_byte^;
+GVL.G_ToYaskawa[45] := Rot_Speed_X.pHigh_byte^;
+
+Rot_Speed_Y.pLow_byte := ADR(Robot_INT_outputs.Rot_Speed_Y);
+Rot_Speed_Y.pHigh_byte := Rot_Speed_Y.pLow_byte +1; 
+GVL.G_ToYaskawa[46] := Rot_Speed_Y.pLow_byte^;
+GVL.G_ToYaskawa[47] := Rot_Speed_Y.pHigh_byte^;
+
+Rot_Speed_Z.pLow_byte := ADR(Robot_INT_outputs.Rot_Speed_Z);
+Rot_Speed_Z.pHigh_byte := Rot_Speed_Z.pLow_byte +1; 
+GVL.G_ToYaskawa[48] := Rot_Speed_Z.pLow_byte^;
+GVL.G_ToYaskawa[49] := Rot_Speed_Z.pHigh_byte^;]]></ST>
+    </Implementation>
+    <LineIds Name="Robot_Input_mapping">
+      <LineId Id="34" Count="0" />
+      <LineId Id="30" Count="0" />
+      <LineId Id="35" Count="0" />
+      <LineId Id="38" Count="0" />
+      <LineId Id="37" Count="0" />
+      <LineId Id="40" Count="8" />
+      <LineId Id="39" Count="0" />
+      <LineId Id="50" Count="3" />
+      <LineId Id="49" Count="0" />
+      <LineId Id="55" Count="3" />
+      <LineId Id="54" Count="0" />
+      <LineId Id="60" Count="3" />
+      <LineId Id="59" Count="0" />
+      <LineId Id="65" Count="3" />
+      <LineId Id="64" Count="0" />
+      <LineId Id="70" Count="3" />
+      <LineId Id="69" Count="0" />
+      <LineId Id="75" Count="3" />
+      <LineId Id="74" Count="0" />
+      <LineId Id="80" Count="3" />
+      <LineId Id="79" Count="0" />
+      <LineId Id="85" Count="3" />
+      <LineId Id="84" Count="0" />
+      <LineId Id="90" Count="3" />
+      <LineId Id="89" Count="0" />
+    </LineIds>
+  </POU>
+</TcPlcObject>

@@ -1,0 +1,94 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4024.9">
+  <POU Name="Robot_Output_mapping" Id="{e926bdcb-ab1a-44fe-8658-d84ede75eae5}" SpecialFunc="None">
+    <Declaration><![CDATA[//map INT values from Robot
+
+
+PROGRAM Robot_Output_mapping
+
+VAR
+	Druckskraft 				: HighLow_pointers;
+	Roll_Geschwindigkeit 		: HighLow_pointers;
+	Contact_Angle 				: HighLow_pointers;
+	Frequeny 					: HighLow_pointers;
+	Start_Roll_Angle 			: HighLow_pointers;
+	End_Roll_Angle 				: HighLow_pointers;
+	FWD_Speed 					: HighLow_pointers;
+	Shift_Speed_X_FWD_Speed 	: HighLow_pointers;
+	Shift_Speed_Y_FWD_Speed 	: HighLow_pointers;
+	Rot_Speed_X 				: HighLow_pointers;
+	Rot_Speed_Y 				: HighLow_pointers;
+	Rot_Speed_Z 				: HighLow_pointers;
+END_VAR
+]]></Declaration>
+    <Implementation>
+      <ST><![CDATA[Druckskraft.pLow_byte := ADR(Robot_INT_inputs.Druckskraft);
+Druckskraft.pHigh_byte := Druckskraft.pLow_byte +1; 
+Druckskraft.pLow_byte^ := GVL.G_FromYaskawa[28];
+Druckskraft.pHigh_byte^:= GVL.G_FromYaskawa[29];
+
+Roll_Geschwindigkeit.pLow_byte := ADR(Robot_INT_inputs.Roll_Geschwindigkeit);
+Roll_Geschwindigkeit.pHigh_byte := Roll_Geschwindigkeit.pLow_byte +1; 
+Roll_Geschwindigkeit.pLow_byte^ := GVL.G_FromYaskawa[30];
+Roll_Geschwindigkeit.pHigh_byte^ := GVL.G_FromYaskawa[31];;
+
+Contact_Angle.pLow_byte := ADR(Robot_INT_inputs.Contact_Angle);
+Contact_Angle.pHigh_byte := Contact_Angle.pLow_byte +1; 
+Contact_Angle.pLow_byte^ := GVL.G_FromYaskawa[32];
+Contact_Angle.pHigh_byte^ := GVL.G_FromYaskawa[33];
+
+Frequeny.pLow_byte := ADR(Robot_INT_inputs.Frequeny);
+Frequeny.pHigh_byte := Frequeny.pLow_byte +1; 
+Frequeny.pLow_byte^ := GVL.G_FromYaskawa[34];
+Frequeny.pHigh_byte^ := GVL.G_FromYaskawa[35];
+
+Start_Roll_Angle.pLow_byte := ADR(Robot_INT_inputs.Start_Roll_Angle);
+Start_Roll_Angle.pHigh_byte := Start_Roll_Angle.pLow_byte +1; 
+Start_Roll_Angle.pLow_byte^ := GVL.G_FromYaskawa[36];
+Start_Roll_Angle.pHigh_byte^ := GVL.G_FromYaskawa[37];
+
+End_Roll_Angle.pLow_byte := ADR(Robot_INT_inputs.End_Roll_Angle);
+End_Roll_Angle.pHigh_byte := End_Roll_Angle.pLow_byte +1; 
+End_Roll_Angle.pLow_byte^ := GVL.G_FromYaskawa[38];
+End_Roll_Angle.pHigh_byte^ := GVL.G_FromYaskawa[39];
+
+FWD_Speed.pLow_byte := ADR(Robot_INT_inputs.FWD_Speed);
+FWD_Speed.pHigh_byte := FWD_Speed.pLow_byte +1; 
+FWD_Speed.pLow_byte^ := GVL.G_FromYaskawa[40];
+FWD_Speed.pHigh_byte^ := GVL.G_FromYaskawa[41];
+
+Shift_Speed_X_FWD_Speed.pLow_byte := ADR(Robot_INT_inputs.Shift_Speed_X_FWD_Speed);
+Shift_Speed_X_FWD_Speed.pHigh_byte := Shift_Speed_X_FWD_Speed.pLow_byte +1; 
+Shift_Speed_X_FWD_Speed.pLow_byte^ := GVL.G_FromYaskawa[42];
+Shift_Speed_X_FWD_Speed.pHigh_byte^ := GVL.G_FromYaskawa[43];
+
+Shift_Speed_Y_FWD_Speed.pLow_byte := ADR(Robot_INT_inputs.Shift_Speed_Y_FWD_Speed);
+Shift_Speed_Y_FWD_Speed.pHigh_byte := Shift_Speed_Y_FWD_Speed.pLow_byte +1; 
+Shift_Speed_Y_FWD_Speed.pLow_byte^ := GVL.G_FromYaskawa[44];
+Shift_Speed_Y_FWD_Speed.pHigh_byte^ := GVL.G_FromYaskawa[45];
+
+Rot_Speed_X.pLow_byte := ADR(Robot_INT_inputs.Rot_Speed_X);
+Rot_Speed_X.pHigh_byte := Rot_Speed_X.pLow_byte +1; 
+Rot_Speed_X.pLow_byte^ := GVL.G_FromYaskawa[46];
+Rot_Speed_X.pHigh_byte^ := GVL.G_FromYaskawa[47];
+
+Rot_Speed_Y.pLow_byte := ADR(Robot_INT_inputs.Rot_Speed_Y);
+Rot_Speed_Y.pHigh_byte := Rot_Speed_Y.pLow_byte +1; 
+Rot_Speed_Y.pLow_byte^ := GVL.G_FromYaskawa[48];
+Rot_Speed_Y.pHigh_byte^ := GVL.G_FromYaskawa[49];
+
+Rot_Speed_Z.pLow_byte := ADR(Robot_INT_inputs.Rot_Speed_Z);
+Rot_Speed_Z.pHigh_byte := Rot_Speed_Z.pLow_byte +1; 
+Rot_Speed_Z.pLow_byte^ := GVL.G_FromYaskawa[50];
+Rot_Speed_Z.pHigh_byte^ := GVL.G_FromYaskawa[51];
+
+]]></ST>
+    </Implementation>
+    <LineIds Name="Robot_Output_mapping">
+      <LineId Id="18" Count="57" />
+      <LineId Id="5" Count="0" />
+      <LineId Id="77" Count="0" />
+      <LineId Id="76" Count="0" />
+    </LineIds>
+  </POU>
+</TcPlcObject>

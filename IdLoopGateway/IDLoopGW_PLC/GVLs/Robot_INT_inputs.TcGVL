@@ -1,0 +1,38 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4024.9">
+  <GVL Name="Robot_INT_inputs" Id="{ef48d8fe-1e3f-49f8-be96-2f4f999d6dca}">
+    <Declaration><![CDATA[{attribute 'qualified_only'}
+VAR_GLOBAL
+	
+	(*_____________Robot Input BOOL parameters__________________*)
+
+	
+	
+	b_Grundstellung 	: BOOL;
+	b_UpdateParam		: BOOL;
+	b_Start				: BOOL;
+	b_ProgAbbrechen		: BOOL;
+	b_Quittieren		: BOOL;	
+
+
+
+	(*_____________Robot Input INT parameters__________________*)
+
+	Job_Number :INT;
+	Druckskraft :INT;
+	Roll_Geschwindigkeit :INT;
+	Contact_Angle :INT;
+	Frequeny :INT;
+	Start_Roll_Angle :INT; 
+	End_Roll_Angle :INT;
+	FWD_Speed :INT;
+	Shift_Speed_X_FWD_Speed :INT;
+	Shift_Speed_Y_FWD_Speed :INT;
+	Rot_Speed_X :INT;
+	Rot_Speed_Y :INT;
+	Rot_Speed_Z :INT;
+	
+	
+END_VAR]]></Declaration>
+  </GVL>
+</TcPlcObject>

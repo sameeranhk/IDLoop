@@ -1,0 +1,54 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4024.9">
+  <POU Name="int_check" Id="{26dda559-b0a5-4a69-a98b-3fa02e13fcb6}" SpecialFunc="None">
+    <Declaration><![CDATA[//for testing only 
+
+PROGRAM int_check
+VAR
+	Druckskraft 				: HighLow_pointers;
+	dummy_in					: HighLow_pointers;
+	dummy_val					: INT :=0 ;
+	dummy_in_r					: INT ;
+	dummy_out_w					: HighLow_pointers ;
+	write_test					: write_2bytess;
+END_VAR
+]]></Declaration>
+    <Implementation>
+      <ST><![CDATA[(*
+Druckskraft.pLow_byte := ADR(dummy_val);
+Druckskraft.pHigh_byte := Druckskraft.pLow_byte +1; 
+GVL.G_ToYaskawa[25] := Druckskraft.pLow_byte^;
+GVL.G_ToYaskawa[26] := Druckskraft.pHigh_byte^;
+*)
+
+(*
+dummy_in.pLow_byte := ADR(dummy_in_r);
+dummy_in.pHigh_byte := dummy_in.pLow_byte +1;
+dummy_in.pLow_byte^ := GVL.G_FromYaskawa[25];
+dummy_in.pHigh_byte^ := GVL.G_FromYaskawa[26];
+*)
+
+dummy_in_r := read_2bytes(GVL.G_FromYaskawa[29] , GVL.G_FromYaskawa[28]);
+//write_test (gvl_in := Robot_INT_inputs.Druckskraft, gvl_lowbyte := GVL.G_ToYaskawa[25], gvl_highbyte := GVL.G_ToYaskawa[26]);
+//dummy_out_w := write_2bytes(Robot_INT_inputs.Druckskraft, GVL.G_ToYaskawa[26], GVL.G_ToYaskawa[25]);
+GVL.G_ToYaskawa[26] := write_lowbyte(Robot_INT_inputs.Druckskraft); 
+GVL.G_ToYaskawa[27] := write_highbyte(Robot_INT_inputs.Druckskraft); ]]></ST>
+    </Implementation>
+    <LineIds Name="int_check">
+      <LineId Id="55" Count="0" />
+      <LineId Id="6" Count="2" />
+      <LineId Id="5" Count="0" />
+      <LineId Id="54" Count="0" />
+      <LineId Id="14" Count="0" />
+      <LineId Id="13" Count="0" />
+      <LineId Id="26" Count="2" />
+      <LineId Id="25" Count="0" />
+      <LineId Id="18" Count="0" />
+      <LineId Id="40" Count="0" />
+      <LineId Id="39" Count="0" />
+      <LineId Id="51" Count="0" />
+      <LineId Id="53" Count="0" />
+      <LineId Id="56" Count="1" />
+    </LineIds>
+  </POU>
+</TcPlcObject>
