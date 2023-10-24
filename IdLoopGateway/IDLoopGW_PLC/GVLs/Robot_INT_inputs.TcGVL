@@ -19,18 +19,27 @@ VAR_GLOBAL
 	(*_____________Robot Input INT parameters__________________*)
 
 	Job_Number :INT;
-	Druckskraft :INT;
+	Druck :INT;
 	Roll_Geschwindigkeit :INT;
-	Contact_Angle :INT;
+	Weg :INT;
 	Frequeny :INT;
+	Fingerdurchmesser : INT;
 	Start_Roll_Angle :INT; 
 	End_Roll_Angle :INT;
-	FWD_Speed :INT;
-	Shift_Speed_X_FWD_Speed :INT;
-	Shift_Speed_Y_FWD_Speed :INT;
-	Rot_Speed_X :INT;
-	Rot_Speed_Y :INT;
-	Rot_Speed_Z :INT;
+	X_Verschiebung :INT;
+	Y_Verschiebung :INT;
+	Z_Verschiebung :INT;
+	RX_Offset_Start :INT;
+	RY_Offset_Start :INT;
+	RZ_Offset_Start :INT;
+	RX_Offset_End :INT;
+	RY_Offset_End : INT;
+	Rz_Offset_End : INT;
+	Scannerverschiebung : INT;
+	
+ 
+
+
 	
 	
 END_VAR]]></Declaration>

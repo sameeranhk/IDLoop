@@ -66,18 +66,19 @@ Robot_INT_inputs.b_Quittieren := GVL.G_ToYaskawa[24].4;
 //INT inputs
 p_jobnumber := ADR(Robot_INT_inputs.Job_Number);
 GVL.G_ToYaskawa[25] := p_jobnumber^; 
+GVL.G_ToYaskawa[58] := p_jobnumber^;   //test for rossy
 
-GVL.G_ToYaskawa[26] := write_lowbyte(Robot_INT_inputs.Druckskraft); 
-GVL.G_ToYaskawa[27] := write_highbyte(Robot_INT_inputs.Druckskraft); 
+GVL.G_ToYaskawa[26] := write_lowbyte(Robot_INT_inputs.Druck); 
+GVL.G_ToYaskawa[27] := write_highbyte(Robot_INT_inputs.Druck); 
 
 GVL.G_ToYaskawa[28] := write_lowbyte(Robot_INT_inputs.Roll_Geschwindigkeit); 
 GVL.G_ToYaskawa[29] := write_highbyte(Robot_INT_inputs.Roll_Geschwindigkeit); 
 
-GVL.G_ToYaskawa[30] := write_lowbyte(Robot_INT_inputs.Contact_Angle); 
-GVL.G_ToYaskawa[31] := write_highbyte(Robot_INT_inputs.Contact_Angle); 
+GVL.G_ToYaskawa[30] := write_lowbyte(Robot_INT_inputs.weg); 
+GVL.G_ToYaskawa[31] := write_highbyte(Robot_INT_inputs.weg); 
 
-GVL.G_ToYaskawa[32] := write_lowbyte(Robot_INT_inputs.Frequeny); 
-GVL.G_ToYaskawa[33] := write_highbyte(Robot_INT_inputs.Frequeny); 
+GVL.G_ToYaskawa[32] := write_lowbyte(Robot_INT_inputs.Fingerdurchmesser); 
+GVL.G_ToYaskawa[33] := write_highbyte(Robot_INT_inputs.Fingerdurchmesser); 
 
 GVL.G_ToYaskawa[34] := write_lowbyte(Robot_INT_inputs.Start_Roll_Angle); 
 GVL.G_ToYaskawa[35] := write_highbyte(Robot_INT_inputs.Start_Roll_Angle); 
@@ -85,23 +86,44 @@ GVL.G_ToYaskawa[35] := write_highbyte(Robot_INT_inputs.Start_Roll_Angle);
 GVL.G_ToYaskawa[36] := write_lowbyte(Robot_INT_inputs.End_Roll_Angle); 
 GVL.G_ToYaskawa[37] := write_highbyte(Robot_INT_inputs.End_Roll_Angle); 
 
-GVL.G_ToYaskawa[38] := write_lowbyte(Robot_INT_inputs.FWD_Speed); 
-GVL.G_ToYaskawa[39] := write_highbyte(Robot_INT_inputs.FWD_Speed); 
+GVL.G_ToYaskawa[38] := write_lowbyte(Robot_INT_inputs.X_Verschiebung); 
+GVL.G_ToYaskawa[39] := write_highbyte(Robot_INT_inputs.X_Verschiebung); 
 
-GVL.G_ToYaskawa[40] := write_lowbyte(Robot_INT_inputs.Shift_Speed_X_FWD_Speed); 
-GVL.G_ToYaskawa[41] := write_highbyte(Robot_INT_inputs.Shift_Speed_X_FWD_Speed); 
+GVL.G_ToYaskawa[40] := write_lowbyte(Robot_INT_inputs.Y_Verschiebung); 
+GVL.G_ToYaskawa[41] := write_highbyte(Robot_INT_inputs.Y_Verschiebung); 
 
-GVL.G_ToYaskawa[42] := write_lowbyte(Robot_INT_inputs.Shift_Speed_Y_FWD_Speed); 
-GVL.G_ToYaskawa[43] := write_highbyte(Robot_INT_inputs.Shift_Speed_Y_FWD_Speed); 
+GVL.G_ToYaskawa[42] := write_lowbyte(Robot_INT_inputs.Z_Verschiebung); 
+GVL.G_ToYaskawa[43] := write_highbyte(Robot_INT_inputs.Z_Verschiebung); 
 
-GVL.G_ToYaskawa[44] := write_lowbyte(Robot_INT_inputs.Rot_Speed_X); 
-GVL.G_ToYaskawa[45] := write_highbyte(Robot_INT_inputs.Rot_Speed_X); 
+GVL.G_ToYaskawa[44] := write_lowbyte(Robot_INT_inputs.RX_Offset_Start); 
+GVL.G_ToYaskawa[45] := write_highbyte(Robot_INT_inputs.RX_Offset_Start); 
 
-GVL.G_ToYaskawa[46] := write_lowbyte(Robot_INT_inputs.Rot_Speed_Y); 
-GVL.G_ToYaskawa[47] := write_highbyte(Robot_INT_inputs.Rot_Speed_Y); 
+GVL.G_ToYaskawa[46] := write_lowbyte(Robot_INT_inputs.RY_Offset_Start); 
+GVL.G_ToYaskawa[47] := write_highbyte(Robot_INT_inputs.RY_Offset_Start); 
 
-GVL.G_ToYaskawa[48] := write_lowbyte(Robot_INT_inputs.Rot_Speed_Z); 
-GVL.G_ToYaskawa[49] := write_highbyte(Robot_INT_inputs.Rot_Speed_Z); ]]></ST>
+GVL.G_ToYaskawa[48] := write_lowbyte(Robot_INT_inputs.RZ_Offset_Start); 
+GVL.G_ToYaskawa[49] := write_highbyte(Robot_INT_inputs.RZ_Offset_Start); 
+
+GVL.G_ToYaskawa[50] := write_lowbyte(Robot_INT_inputs.RX_Offset_End); 
+GVL.G_ToYaskawa[51] := write_highbyte(Robot_INT_inputs.RX_Offset_End);
+
+GVL.G_ToYaskawa[52] := write_lowbyte(Robot_INT_inputs.RY_Offset_End); 
+GVL.G_ToYaskawa[53] := write_highbyte(Robot_INT_inputs.RY_Offset_End); 
+
+GVL.G_ToYaskawa[54] := write_lowbyte(Robot_INT_inputs.RZ_Offset_End); 
+GVL.G_ToYaskawa[55] := write_highbyte(Robot_INT_inputs.RZ_Offset_End); 
+
+GVL.G_ToYaskawa[56] := write_lowbyte(Robot_INT_inputs.Scannerverschiebung); 
+GVL.G_ToYaskawa[57] := write_highbyte(Robot_INT_inputs.Scannerverschiebung); 
+
+
+
+
+
+
+
+
+ ]]></ST>
     </Implementation>
     <LineIds Name="Robot_IO_mapping">
       <LineId Id="5" Count="0" />
@@ -130,6 +152,7 @@ GVL.G_ToYaskawa[49] := write_highbyte(Robot_INT_inputs.Rot_Speed_Z); ]]></ST>
       <LineId Id="67" Count="0" />
       <LineId Id="76" Count="0" />
       <LineId Id="72" Count="0" />
+      <LineId Id="177" Count="0" />
       <LineId Id="74" Count="0" />
       <LineId Id="73" Count="0" />
       <LineId Id="71" Count="0" />
@@ -149,6 +172,9 @@ GVL.G_ToYaskawa[49] := write_highbyte(Robot_INT_inputs.Rot_Speed_Z); ]]></ST>
       <LineId Id="126" Count="0" />
       <LineId Id="130" Count="1" />
       <LineId Id="129" Count="0" />
+      <LineId Id="174" Count="0" />
+      <LineId Id="176" Count="0" />
+      <LineId Id="175" Count="0" />
       <LineId Id="133" Count="1" />
       <LineId Id="132" Count="0" />
       <LineId Id="136" Count="1" />
@@ -157,6 +183,15 @@ GVL.G_ToYaskawa[49] := write_highbyte(Robot_INT_inputs.Rot_Speed_Z); ]]></ST>
       <LineId Id="138" Count="0" />
       <LineId Id="142" Count="1" />
       <LineId Id="141" Count="0" />
+      <LineId Id="151" Count="0" />
+      <LineId Id="161" Count="0" />
+      <LineId Id="152" Count="0" />
+      <LineId Id="163" Count="1" />
+      <LineId Id="162" Count="0" />
+      <LineId Id="166" Count="1" />
+      <LineId Id="165" Count="0" />
+      <LineId Id="153" Count="7" />
+      <LineId Id="150" Count="0" />
     </LineIds>
   </POU>
 </TcPlcObject>
